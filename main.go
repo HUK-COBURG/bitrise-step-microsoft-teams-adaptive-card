@@ -131,7 +131,19 @@ func parsesFacts(s string) (fs []adaptivecard.Fact) {
 
 func parsesImages(s string) (container adaptivecard.Container) {
 	container = adaptivecard.NewContainer()
+	for _, p := range pairs(s) {
 
+		image := adaptivecard.Element{
+			URL:  p[1],
+			Type: "Image",
+			Size: "medium",
+		}
+
+		err := container.AddElement(false, image)
+		if err != nil {
+			log.Errorf("Could not add image %v", err)
+		}
+	}
 	return container
 }
 

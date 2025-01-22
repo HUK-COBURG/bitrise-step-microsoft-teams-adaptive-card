@@ -136,7 +136,7 @@ func parsesImages(s string) (container adaptivecard.Container) {
 		image := adaptivecard.Element{
 			URL:  p[1],
 			Type: "Image",
-			Size: "medium",
+			Size: "large",
 		}
 
 		err := container.AddElement(false, image)

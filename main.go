@@ -58,8 +58,8 @@ func NewCard(c Config) adaptivecard.Card {
 	// Create style depending on build status
 	statusBanner := adaptivecard.NewContainer()
 	headline := adaptivecard.NewTextBlock("", false)
-	headline.Size = "Large"
-	headline.Weight = "Bolder"
+	headline.Size = "large"
+	headline.Weight = "bolder"
 	headline.Style = "heading"
 	if success {
 		statusBanner.Style = "good"
@@ -78,7 +78,7 @@ func NewCard(c Config) adaptivecard.Card {
 	// Main Section
 	mainContainer := adaptivecard.NewContainer()
 	mainContainer.Style = "default"
-	mainContainer.Spacing = "Medium"
+	mainContainer.Spacing = "medium"
 	if selectValue(c.Title, c.TitleOnError) != "" {
 		mainContainer.Items = append(mainContainer.Items, adaptivecard.NewTextBlock(selectValue(c.Title, c.TitleOnError), false))
 	}
@@ -138,7 +138,7 @@ func parsesImages(s string) (container adaptivecard.Container) {
 			URL:   p[1],
 			Type:  "Image",
 			Style: "default",
-			Size:  "Small",
+			Size:  "small",
 		}
 
 		err := container.AddElement(false, image)

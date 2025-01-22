@@ -135,10 +135,9 @@ func parsesImages(s string) (container adaptivecard.Container) {
 	for _, p := range pairs(s) {
 
 		image := adaptivecard.Element{
-			URL:   p[1],
-			Type:  "Image",
-			Style: "default",
-			Size:  "small",
+			URL:  p[1],
+			Type: "Image",
+			Size: "small",
 		}
 
 		err := container.AddElement(false, image)

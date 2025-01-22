@@ -62,13 +62,13 @@ func NewCard(c Config) adaptivecard.Card {
 	headline.Weight = "bolder"
 	headline.Style = "heading"
 	if success {
-		statusBanner.Style = "good"
-		headline.Color = "good"
-		headline.Text = "Success"
+		statusBanner.Style = c.CardStyle
+		headline.Color = c.CardStyle
+		headline.Text = c.CardHeadline
 	} else {
-		statusBanner.Style = "attention"
-		headline.Color = "Attention"
-		headline.Text = "Failed"
+		statusBanner.Style = c.CardStyleOnError
+		headline.Color = c.CardStyleOnError
+		headline.Text = c.CardHeadlineOnError
 	}
 	statusBanner.Spacing = "None"
 	statusBanner.Separator = true
@@ -132,19 +132,6 @@ func parsesFacts(s string) (fs []adaptivecard.Fact) {
 func parsesImages(s string) (container adaptivecard.Container) {
 	container = adaptivecard.NewContainer()
 
-	for _, p := range pairs(s) {
-
-		image := adaptivecard.Element{
-			URL:  p[1],
-			Type: "Image",
-			Size: "small",
-		}
-
-		err := container.AddElement(false, image)
-		if err != nil {
-			log.Errorf("Could not add image %v", err)
-		}
-	}
 	return container
 }
 

@@ -39,10 +39,13 @@ type Config struct {
 	Debug      bool            `env:"is_debug_mode,opt[yes,no]"`
 	WebhookURL stepconf.Secret `env:"webhook_url"`
 	// Message Main
-	ThemeColor        string `env:"theme_color"`
-	ThemeColorOnError string `env:"theme_color_on_error"`
-	Title             string `env:"title"`
-	TitleOnError      string `env:"title_on_error"`
+	CardStyle           string `env:"card_style"`
+	CardStyleOnError    string `env:"card_style_on_error"`
+	CardHeadline        string `env:"card_headline"`
+	CardHeadlineOnError string `env:"card_headline_on_error"`
+
+	Title        string `env:"title"`
+	TitleOnError string `env:"title_on_error"`
 	// Message Git
 	AuthorName string `env:"author_name"`
 	Subject    string `env:"subject"`
